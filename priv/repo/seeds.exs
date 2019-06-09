@@ -9,6 +9,3 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-%User{:username => "Barry"} |> TrackRecord.Repo.insert!
-%User{:username => "Jimmy"} |> TrackRecord.Repo.insert!
-%User{:username => "Bimmy"} |> TrackRecord.Repo.insert!

@@ -37,6 +37,29 @@ defmodule TrackRecord.Accounts do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
+    @doc """
+  Gets a single user.
+
+  Raises `Ecto.NoResultsError` if the User does not exist.
+
+  ## Examples
+
+      iex> get_user(123)
+      %User{}
+
+      iex> get_user(456)
+      {:error, <an-error>}
+
+  """
+  def get_user(id) do 
+    Repo.get(User, id) 
+    |> user_result
+  end
+
+  defp user_result(nil), do: {:error, "User not found"}
+  defp user_result(user), do: {:ok, user}
+  defp user_result(error), do: error
+
   @doc """
   Creates a user.
 
